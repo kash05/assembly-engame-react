@@ -96,6 +96,14 @@ body {
     border-radius: 3px;
     cursor: pointer;
   }
+
+  .correct {
+    background-color: #10a95b;
+  }
+
+  .wrong {
+    background-color: #ec5d49;
+  }
 }
 
 .new-game {

@@ -1,7 +1,4 @@
-import { useState } from "react";
-
-export default function UserWordsInput() {
-  const [currentWord, setCurrentWord] = useState("react");
+export default function UserWordsInput({ currentWord }) {
   return (
     <div className="words">
       {currentWord.split("").map((letter, index) => (
