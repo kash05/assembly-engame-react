@@ -24,20 +24,20 @@ export default function GameStatus({
 
   if (isGameLost || isGameWon) {
     return (
-      <div className={className}>
+      <div className={className} aria-live="polite" role="status">
         <h2>{heading}</h2>
         <p>{message}</p>
       </div>
     );
   }
 
-  return <div className="empty" />;
+  return <div aria-live="polite" role="status" className="empty" />;
 }
 
 function FarewellMessage({ language, className }) {
   const text = getFarewellText(language);
   return (
-    <div className={className}>
+    <div className={className} aria-live="polite" role="status">
       <p>{text}</p>
     </div>
   );

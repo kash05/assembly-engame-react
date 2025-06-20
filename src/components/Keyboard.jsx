@@ -4,6 +4,7 @@ export default function Keyboard({
   guessedLetters,
   addGuessedLetter,
   currentWord,
+  isGameOver,
 }) {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   return (
@@ -15,13 +16,20 @@ export default function Keyboard({
           addGuessedLetter={addGuessedLetter}
           guessedLetters={guessedLetters}
           currentWord={currentWord}
+          isGameOver={isGameOver}
         />
       ))}
     </div>
   );
 }
 
-function Key({ letter, addGuessedLetter, guessedLetters, currentWord }) {
+function Key({
+  letter,
+  addGuessedLetter,
+  guessedLetters,
+  currentWord,
+  isGameOver,
+}) {
   const isGuessed = guessedLetters.includes(letter);
   const isCorrect = isGuessed && currentWord.includes(letter);
   const isWrong = isGuessed && !currentWord.includes(letter);
@@ -32,7 +40,12 @@ function Key({ letter, addGuessedLetter, guessedLetters, currentWord }) {
   });
 
   return (
-    <button className={className} onClick={() => addGuessedLetter(letter)}>
+    <button
+      className={className}
+      onClick={() => addGuessedLetter(letter)}
+      disabled={isGameOver}
+      aria-disabled={guessedLetters.includes(letter)}
+    >
       {letter.toUpperCase()}
     </button>
   );

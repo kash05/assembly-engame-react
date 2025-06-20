@@ -148,6 +148,11 @@ main {
   .wrong {
     background-color: #ec5d49;
   }
+
+  button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .new-game {

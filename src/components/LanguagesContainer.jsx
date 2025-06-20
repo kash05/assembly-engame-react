@@ -1,11 +1,7 @@
 import clsx from "clsx";
 import { languages } from "../resources/languages";
 
-export default function LanguagesContainer({
-  guessedLetters,
-  currentWord,
-  wrongGuessesCount,
-}) {
+export default function LanguagesContainer({ wrongGuessesCount }) {
   return (
     <div className="languages-chips">
       {languages.map((language, index) => (

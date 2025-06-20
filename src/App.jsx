@@ -43,11 +43,7 @@ export default function App() {
         isLastGuessIncorrect={isLastGuessIncorrect}
         language={language}
       />
-      <LanguagesContainer
-        guessedLetters={guessedLetters}
-        currentWord={currentWord}
-        wrongGuessesCount={wrongGuessesCount}
-      />
+      <LanguagesContainer wrongGuessesCount={wrongGuessesCount} />
       <UserWordsInput
         currentWord={currentWord}
         guessedLetters={guessedLetters}
@@ -56,6 +52,7 @@ export default function App() {
         guessedLetters={guessedLetters}
         addGuessedLetter={addGuessedLetter}
         currentWord={currentWord}
+        isGameOver={isGameOver}
       />
       {isGameOver && <button className="new-game">New Game</button>}
     </main>
