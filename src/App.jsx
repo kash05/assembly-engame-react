@@ -9,6 +9,15 @@ export default function App() {
   const [currentWord, setCurrentWord] = useState("react");
   const [guessedLetters, setGuessedLetters] = useState([]);
 
+  //   useEffect(() => {
+  //     setCurrentWord(getRandomWord());
+  //     console.log(currentWord);
+  //   }, [currentWord]);
+
+  //   function getRandomWord() {
+  //     return languages[Math.floor(Math.random() * languages.length)];
+  //   }
+
   function addGuessedLetter(letter) {
     setGuessedLetters((prevLetters) =>
       prevLetters.includes(letter) ? prevLetters : [...prevLetters, letter]
@@ -18,8 +27,14 @@ export default function App() {
     <main>
       <Header />
       <GameStatus />
-      <LanguagesContainer />
-      <UserWordsInput currentWord={currentWord} />
+      <LanguagesContainer
+        guessedLetters={guessedLetters}
+        currentWord={currentWord}
+      />
+      <UserWordsInput
+        currentWord={currentWord}
+        guessedLetters={guessedLetters}
+      />
       <Keyboard
         guessedLetters={guessedLetters}
         addGuessedLetter={addGuessedLetter}
