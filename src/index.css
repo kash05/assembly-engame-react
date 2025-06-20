@@ -9,8 +9,12 @@ body {
   color: #d9d9d9;
   padding: 20px;
   height: 100vh;
+}
+
+main {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .app-header {
@@ -30,13 +34,24 @@ body {
 }
 
 .game-status {
-  background-color: #10a95b;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   color: #f9f4da;
   border-radius: 4px;
   margin-block: 30px;
+  height: 70px;
+  width: 100%;
+  max-width: 350px;
+
+  &.lost {
+    background-color: #ec5d49;
+  }
+
+  &.won {
+    background-color: #10a95b;
+  }
 
   h2 {
     font-size: 1.25rem;
@@ -46,6 +61,20 @@ body {
   p {
     margin: 5px;
   }
+}
+
+.empty {
+  margin-block: 30px;
+  height: 70px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.farewell {
+  background-color: #7a5ea7 !important;
+  border: 1px dashed #323232;
+  font-style: italic;
+  font-weight: 400;
 }
 
 .languages-chips {

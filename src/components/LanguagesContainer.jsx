@@ -1,10 +1,11 @@
 import clsx from "clsx";
 import { languages } from "../resources/languages";
 
-export default function LanguagesContainer({ guessedLetters, currentWord }) {
-  const wrongGuessesCount = guessedLetters.filter(
-    (letter) => !currentWord.includes(letter)
-  ).length;
+export default function LanguagesContainer({
+  guessedLetters,
+  currentWord,
+  wrongGuessesCount,
+}) {
   return (
     <div className="languages-chips">
       {languages.map((language, index) => (
