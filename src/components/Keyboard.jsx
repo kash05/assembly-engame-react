@@ -45,6 +45,7 @@ function Key({
       onClick={() => addGuessedLetter(letter)}
       disabled={isGameOver}
       aria-disabled={guessedLetters.includes(letter)}
+      aria-label={`Letter ${letter}`}
     >
       {letter.toUpperCase()}
     </button>

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { getFarewellText } from "../resources/farewellMessages";
+import { getFarewellText } from "../resources/utils";
 
 export default function GameStatus({
   isGameLost,

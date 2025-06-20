@@ -122,6 +122,9 @@ main {
     font-size: 1.125rem;
     border-bottom: 1px solid #f9f4da;
   }
+  .missed-letter {
+    color: #ec5d49;
+  }
 }
 
 .keyboard {

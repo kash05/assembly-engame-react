@@ -5,9 +5,11 @@ import Keyboard from "./components/Keyboard";
 import LanguagesContainer from "./components/LanguagesContainer";
 import UserWordsInput from "./components/UserWordsInput";
 import { languages } from "./resources/languages";
+import { getRandomWord } from "./resources/utils";
+import Confetti from "react-confetti";
 
 export default function App() {
-  const [currentWord, setCurrentWord] = useState("react");
+  const [currentWord, setCurrentWord] = useState(() => getRandomWord());
   const [guessedLetters, setGuessedLetters] = useState([]);
 
   const wrongGuessesCount = guessedLetters.filter(
@@ -33,8 +35,14 @@ export default function App() {
 
   const language =
     wrongGuessesCount > 0 ? languages[wrongGuessesCount - 1].name : "";
+
+  function startNewGame() {
+    setCurrentWord(getRandomWord());
+    setGuessedLetters([]);
+  }
   return (
     <main>
+      {isGameWon && <Confetti recycle={false} numberOfPieces={1000} />}
       <Header />
       <GameStatus
         isGameLost={isGameLost}
@@ -47,6 +55,7 @@ export default function App() {
       <UserWordsInput
         currentWord={currentWord}
         guessedLetters={guessedLetters}
+        isGameLost={isGameLost}
       />
       <Keyboard
         guessedLetters={guessedLetters}
@@ -54,7 +63,11 @@ export default function App() {
         currentWord={currentWord}
         isGameOver={isGameOver}
       />
-      {isGameOver && <button className="new-game">New Game</button>}
+      {isGameOver && (
+        <button className="new-game" onClick={startNewGame}>
+          New Game
+        </button>
+      )}
     </main>
   );
 }
